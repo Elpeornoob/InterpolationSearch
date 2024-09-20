@@ -1,5 +1,6 @@
 package bryan;
 
+import bryan.interpolationSearch.executiontime.ExecutionTime;
 import bryan_estructuras.linkedlist.doubly.LinkedList;
 
 import java.util.Comparator;
@@ -32,5 +33,6 @@ public class Main {
         } else {
             System.out.println("El elemento no está presente en la lista.");
         }
+        ExecutionTime.complejidadInterpolationSearch();
     }
 }
