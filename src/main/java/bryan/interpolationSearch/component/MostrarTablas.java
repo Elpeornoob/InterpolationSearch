@@ -48,7 +48,7 @@ public class MostrarTablas extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Tabla de valores de texto");
+        jLabel2.setText("Tabla de valores de tipo clase");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -100,6 +100,7 @@ public class MostrarTablas extends javax.swing.JFrame {
         );
 
         pack();
+
     }// </editor-fold>//GEN-END:initComponents
 
     /**

@@ -47,7 +47,7 @@ public class ExecutionTime<E> {
             tablaNumerica.añadirFila(new String[]{String.valueOf(size),String.valueOf(tiempoNumerico)});
 
             long tiempoAvion = -1;
-            tiempoAvion = medirTiempoDeEjecucionInterpolationSearch(listaAvion, Comparator.comparing(avion -> avion.getName()));
+            tiempoAvion = medirTiempoDeEjecucionInterpolationSearch(listaAvion, Comparator.comparing(Avion::getYear));
 
 
             tablaAvion.añadirFila(new String[]{String.valueOf(size),String.valueOf(tiempoAvion)});
@@ -56,24 +56,23 @@ public class ExecutionTime<E> {
 
     private static void llenarListaNumerica(LinkedList<Integer> lista, int size) {
         for (int i = 0; i < size; i++) {
-            lista.add((int) (Math.random() * 1000));
+            lista.add((int) (Math.random() * 10000000));
         }
         lista.sort(Integer::intValue);
     }
 
     private static void llenarListaAvion(LinkedList<Avion> lista, int size) {
         for (int i = 0; i < size; i++) {
-            lista.add(new Avion("Texto" + (int) (Math.random() * 1000),(int) (Math.random() * 1000)));
+            lista.add(new Avion("Texto" + (int) (Math.random() * 10000), (int) (Math.random() * 100000)));
         }
-        lista.sort(avion -> avion.getYear());
+        lista.sort(Avion::getYear);
     }
     private static <E> long medirTiempoDeEjecucionInterpolationSearch(LinkedList<E> lista, Comparator<E> comparator) {
         int i = (int) (Math.random() * lista.size());
         Iterator<E> it = lista.iterator();
-        E element = lista.peek();
-        while(i < 0) {
+        E element = null;
+        for(int j = 0; j <= i; j++) {
             element = it.next();
-            i--;
         }
         long startTime = System.nanoTime();
         InterpolationSearch.interpolacionSearch(lista,element,comparator);
